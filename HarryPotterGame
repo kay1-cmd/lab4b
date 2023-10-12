@@ -1,0 +1,165 @@
+import java.util.Scanner;
+import java.util.Random;
+
+/**
+ * This program is a Harry Potter based game. It presents the user with obstacles and randomly generates spells that may or may not help them.
+ * Created 02/17/2022
+ * 
+ * @author Nia Jordan
+ * Section 200
+ */
+public class HarryPotter 
+{
+	public static void main(String[] args)
+	{
+		Random rnd = new Random();
+		Scanner kbd = new Scanner(System.in);
+		
+		
+		int count = 5;
+		int answer;
+		final String UNLOCK = "Alohomora"; //1
+		final String FREEZE = "Immobulus"; //2
+		final String FLY = "Wingardium Leviosa"; //3
+		
+		
+		
+		System.out.println("You are out past curfew and you hear Filch approaching.\n"
+				+ "It sounds like he is about 5 minutes away from finding you.\n"
+				+ "You need to get back to the common room before he catches you!\n"
+				+ "You run down the hall, turn right, and then suddenly stop.");
+		
+		kbd.nextLine();
+		
+		
+		do {
+			if(count == 0) {
+				break;
+			}
+			System.out.println("There is a locked door ahead "
+					+ "you, you pull out your wand and yell...(press Enter)");
+			kbd.nextLine();
+			
+			answer = rnd.nextInt(3) + 1;
+			
+			if(answer == 1){
+				System.out.println(UNLOCK);
+				System.out.println("Well done! The door creaks open and you run through.");
+				kbd.nextLine();
+				System.out.println("That was close! You sprint down the hallway toward your common room.\n"
+						+ "As you near the potions classroom, you hear a loud crash.\n "
+						+ "A cloud of billiwigs erupts from the room. Their jar myst have fallen off the desk.\n"
+						+ "Sigh. You don't need this right now... you can't get stung.");
+				
+				kbd.nextLine();
+
+			}else if(answer == 2){
+				--count;
+				System.out.println(FREEZE);
+				System.out.println("Oh! Uhm... You froze the locked door?");
+				System.out.println("Oh no! You can hear Filch getting closer! It sounds like he is " 
+						+ count + " minutes away.");
+				kbd.nextLine();
+			}else if(answer == 3){
+				--count;
+				System.out.println(FLY);
+				System.out.println("For some reason the door won't fly out of its frame. Rats.");
+				System.out.println("Oh no! You can hear Filch getting closer! It sounds like he is " 
+						+ count + " minutes away.");
+				kbd.nextLine();
+			}
+		}while(answer != 1);
+		
+			
+		
+		
+		
+		do {
+			if(count == 0) {
+				break;
+			}
+			
+			System.out.println("You stare at the mass amount of billiwigs. "
+					+ "You pull out your wand and yell...(press Enter)");
+			 kbd.nextLine();
+			
+			answer = rnd.nextInt(3) + 1;
+			
+			if(answer == 1){
+				--count;
+				System.out.println(UNLOCK);
+				System.out.println("This spell is for unlocking doors, young Wizard.");
+				System.out.println("Oh no! You can hear Filch getting closer! It sounds like he is " 
+						+ count + " minutes away.");
+				kbd.nextLine();
+				
+			}else if(answer == 2){
+				System.out.println(FREEZE);
+				System.out.println("Nice Work! The billiwigs are frozen. You weave your way through the bugs and continue towards your common room.");
+				kbd.nextLine();
+				System.out.println("You're almost there! The common room is right up the next stairwell. \n"
+						+ "You race to the bottom of the stairs and come face to face with a massive "
+						+ "pumpkin pasty blocking the stairs.\n"
+						+ "Look like the Weasley twins have been trying out new pranks.");
+				
+				kbd.nextLine();
+
+			}else if(answer == 3){
+				--count;
+				System.out.println(FLY);
+				System.out.println("I'm not sure if you noticed... but they're already flying!");
+				System.out.println("Oh no. It's Filch, he's getting closer! It sounds like he is " 
+						+ count + " minutes away.");
+				kbd.nextLine();
+			}
+		}while(answer != 2);
+		
+		
+		
+		
+				
+		do {
+			if(count == 0) {
+				break;
+			}
+			
+			System.out.println("You have to lift this huge pasty out of the way.\nYou pull"
+					+ "out your wand and yell...(press Enter)");
+			kbd.nextLine();
+			
+			answer = rnd.nextInt(3) + 1;
+			
+			if(answer == 1){
+				--count;
+				System.out.println(UNLOCK);
+				System.out.println("This spell is for unlocking doors, young Wizard.");
+				System.out.println("Oh no! You can hear Filch getting closer! It sounds like he is " 
+						+ count + " minutes away.");
+				kbd.nextLine();
+			}else if(answer == 2){
+				--count;
+				System.out.println(FREEZE);
+				System.out.println("Now it can't move..");
+				System.out.println("Oh no! It's Filch, he's getting closer! It sounds like he is " 
+						+ count + " minutes away.");
+				kbd.nextLine();
+			}else if(answer == 3){
+				System.out.println(FLY);
+				System.out.println("Great idea! The pasty floats up high enough for you to duck underneath.\n "
+						+ "You take a quick bite as you go under, Delicious!  ");
+				kbd.nextLine();
+			}
+		}while(answer != 3);
+		
+		if(count == 0) {
+			System.out.print("Filch grabs you by your collar. \"Aha! Out after curfew I see.. "
+					+ "\ndetention for you!\"\n"
+					+ "Filch marches you to the headmaster's office while muttering about"
+					+ " his great ideas for your detention.\nGame Over.");
+		}else{
+			System.out.println("You reach the door of your common room and slip safely inside.\n"
+					+ "Filch is no match for a student of your ability!\n"
+					+ "Game Over. You Win!");
+		}
+	}
+}
